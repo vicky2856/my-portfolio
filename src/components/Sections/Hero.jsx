@@ -183,46 +183,47 @@ CERTIFICATIONS
         </div>
 
         {/* Right Side: Animated Image Placeholder / Visual */}
-        <div className="lg:col-span-5 flex justify-center items-center relative h-[360px] sm:h-[450px] w-full">
+        <div className="lg:col-span-5 flex justify-center items-center relative h-[380px] sm:h-[480px] w-full">
           
           {/* Background Rotating Rings */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] rounded-full border border-dashed border-slate-700/60"
+            className="absolute w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full border border-dashed border-slate-700/60"
           />
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-            className="absolute w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] rounded-full border border-dotted border-blue-500/20"
+            className="absolute w-[240px] h-[240px] sm:w-[310px] sm:h-[310px] rounded-full border border-dotted border-blue-500/20"
           />
 
-          {/* Central Glass Globe (Avatar Placeholder) */}
+          {/* Central Portrait Card Frame matching the photo's 458x1024 aspect ratio */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            whileHover={{ scale: 1.05 }}
-            className="w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-full glass-card flex flex-col justify-center items-center relative overflow-hidden group border border-slate-600/40 shadow-2xl interactive-hover animate-glow"
+            whileHover={{ scale: 1.03, rotateY: 3, rotateX: -3 }}
+            className="w-[160px] h-[358px] sm:w-[200px] sm:h-[448px] rounded-3xl glass-card flex flex-col justify-center items-center relative overflow-hidden group border border-slate-600/40 shadow-[0_0_50px_-15px_rgba(6,182,212,0.3)] interactive-hover"
+            style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
           >
-            {/* Background elements */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-purple-500/10 to-cyan-500/10 opacity-70 z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(139,92,246,0.25),rgba(15,23,42,0))] z-10 pointer-events-none" />
+            {/* Background elements (behind the image to prevent fading) */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-purple-500/10 to-cyan-500/10 opacity-30 z-0 pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(139,92,246,0.25),rgba(15,23,42,0))] z-0 pointer-events-none" />
             
-            {/* Profile Image */}
+            {/* Profile Image displaying the full photo cleanly */}
             <img 
               src={avatar} 
               alt={personalInfo.name}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 z-0"
+              className="w-full h-full object-cover object-center scale-100 transition-transform duration-500 z-10"
             />
             
             {/* Glowing overlay text on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex flex-col justify-end items-center pb-4">
-              <span className="font-mono text-[10px] sm:text-xs text-cyan-300 tracking-widest uppercase font-semibold">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex flex-col justify-end items-center pb-5">
+              <span className="font-mono text-xs sm:text-sm text-cyan-300 tracking-widest uppercase font-semibold">
                 {personalInfo.name}
               </span>
-              <span className="text-[8px] sm:text-[10px] font-mono text-slate-400 tracking-wider uppercase mt-1">
-                Portfolio Profile
+              <span className="text-[10px] sm:text-xs font-mono text-slate-400 tracking-wider uppercase mt-1">
+                Software Engineer
               </span>
             </div>
             
@@ -236,7 +237,7 @@ CERTIFICATIONS
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-10 right-6 sm:top-14 sm:right-12 w-12 h-12 rounded-xl glass-card flex items-center justify-center text-amber-500 border border-amber-500/20 shadow-md interactive-hover"
+            className="absolute top-8 right-4 sm:top-12 sm:right-10 w-12 h-12 rounded-xl glass-card flex items-center justify-center text-amber-500 border border-amber-500/20 shadow-md interactive-hover z-20"
             title="AWS Certified Cloud Practitioner"
           >
             <Cloud className="w-6 h-6" />
@@ -246,7 +247,7 @@ CERTIFICATIONS
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-10 right-8 sm:bottom-16 sm:right-14 w-12 h-12 rounded-xl glass-card flex items-center justify-center text-blue-400 border border-blue-400/20 shadow-md interactive-hover"
+            className="absolute bottom-8 right-6 sm:bottom-12 sm:right-12 w-12 h-12 rounded-xl glass-card flex items-center justify-center text-blue-400 border border-blue-400/20 shadow-md interactive-hover z-20"
             title="React JS Developer"
           >
             <Code2 className="w-6 h-6" />
@@ -256,7 +257,7 @@ CERTIFICATIONS
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute top-12 left-8 sm:top-16 sm:left-14 w-12 h-12 rounded-xl glass-card flex items-center justify-center text-emerald-400 border border-emerald-400/20 shadow-md interactive-hover"
+            className="absolute top-10 left-6 sm:top-14 sm:left-10 w-12 h-12 rounded-xl glass-card flex items-center justify-center text-emerald-400 border border-emerald-400/20 shadow-md interactive-hover z-20"
             title="Spring Boot / Java"
           >
             <Cpu className="w-6 h-6" />
@@ -266,7 +267,7 @@ CERTIFICATIONS
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-            className="absolute bottom-12 left-10 sm:bottom-20 sm:left-16 w-12 h-12 rounded-xl glass-card flex items-center justify-center text-purple-400 border border-purple-400/20 shadow-md interactive-hover"
+            className="absolute bottom-10 left-8 sm:bottom-16 sm:left-14 w-12 h-12 rounded-xl glass-card flex items-center justify-center text-purple-400 border border-purple-400/20 shadow-md interactive-hover z-20"
             title="Machine Learning & Python"
           >
             <Database className="w-6 h-6" />
